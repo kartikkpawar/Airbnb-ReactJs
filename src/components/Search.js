@@ -10,7 +10,8 @@ import { useHistory } from "react-router-dom";
 const Search = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-
+  const [persons, setPersons] = useState(2);
+  const history = useHistory();
   const selectionRange = {
     startDate: startDate,
     endDate: endDate,
@@ -27,10 +28,20 @@ const Search = () => {
       <h2>
         Number of guest <PeopleIcon />
       </h2>
-      <input min={2} defaultValue={2} type="number" />
-      <Button>Search Airbnb</Button>
+      <input
+        min={2}
+        defaultValue={2}
+        type="number"
+        onChange={(e) => setPersons(e.target.value)}
+      />
+      <Button
+        onClick={() => history.push("/search", { persons, startDate, endDate })}
+      >
+        Search Airbnb
+      </Button>
     </div>
   );
 };
 
 export default Search;
+//

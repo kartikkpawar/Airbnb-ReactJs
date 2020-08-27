@@ -13,3 +13,7 @@
   text-transform: inherit;
   margin: 5px;
 }
+.button__black {
+  background-color: black !important;
+  color: white !important;
+}

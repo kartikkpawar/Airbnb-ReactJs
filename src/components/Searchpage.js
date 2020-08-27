@@ -1,17 +1,83 @@
-import React from "react";
+import React, { useState } from "react";
 import "../css/searchpage.css";
 import { Button } from "@material-ui/core";
 import SearchResult from "./Searchresult";
+import { useHistory } from "react-router-dom";
 const Searchpage = () => {
+  const history = useHistory();
+  const [cf, setCf] = useState(false);
+  const [top, setTop] = useState(false);
+  const [price, setPrice] = useState(false);
+  const [rab, setRab] = useState(false);
+
+  const startDate = new Date(history.location.state.startDate);
+  const endDate = new Date(history.location.state.endDate);
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
   return (
     <div className="searchPage">
       <div className="searchPage__info">
-        <p>62 stays · 26 august to 30 august · 2 guest</p>
+        <p>
+          62 stays ·{" "}
+          {`${startDate?.getDate()} ${
+            months[startDate?.getMonth()]
+          } ${startDate?.getFullYear()}`}{" "}
+          to{" "}
+          {`${endDate?.getDate()} ${
+            months[endDate?.getMonth()]
+          } ${endDate?.getFullYear()}`}{" "}
+          · {history.location.state.persons} guest
+        </p>
         <h1>Stays nearby</h1>
-        <Button variant="outlined">Cancellation Flexibility</Button>
-        <Button variant="outlined">Type of place</Button>
-        <Button variant="outlined">Price</Button>
-        <Button variant="outlined">Rooms and beds</Button>
+        <Button
+          variant="outlined"
+          onClick={() => {
+            setCf(!cf);
+          }}
+          className={cf && "button__black"}
+        >
+          Cancellation Flexibility
+        </Button>
+        <Button
+          variant="outlined"
+          onClick={() => {
+            setTop(!top);
+          }}
+          className={top && "button__black"}
+        >
+          Type of place
+        </Button>
+        <Button
+          variant="outlined"
+          onClick={() => {
+            setPrice(!price);
+          }}
+          className={price && "button__black"}
+        >
+          Price
+        </Button>
+        <Button
+          variant="outlined"
+          onClick={() => {
+            setRab(!rab);
+          }}
+          className={rab && "button__black"}
+        >
+          Rooms and beds
+        </Button>
         <Button variant="outlined">More filters</Button>
       </div>
       <SearchResult

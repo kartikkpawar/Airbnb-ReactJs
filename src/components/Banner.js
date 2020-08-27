@@ -25,7 +25,7 @@ const Banner = () => {
         <h5>
           Plan different kind of gateway to uncover the hidden gems near you
         </h5>
-        <Button onClick={() => history.push("/search")} variant="outlined">
+        <Button onClick={() => setShowSearch(!showSearch)} variant="outlined">
           Explore Nearby
         </Button>
       </div>

@@ -4,11 +4,12 @@
   height: 50vh;
   width: 100vw;
   position: relative;
+  margin-bottom: 50px;
 }
 .banner__info {
   background-color: black;
   color: white;
-  padding-top: 14vh;
+  padding-top: 20vh;
   padding-left: 50px;
   padding-right: 50px;
   padding-bottom: 40px;

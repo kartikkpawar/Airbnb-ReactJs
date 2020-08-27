@@ -18,6 +18,7 @@ const SearchResult = ({
     setToggle(!toggle);
     // searchResult__heartred
   };
+
   return (
     <div className="searchResult">
       <img src={img} alt="" />
